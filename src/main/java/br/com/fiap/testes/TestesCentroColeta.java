@@ -8,7 +8,9 @@ import br.com.fiap.entity.CentroColeta;
 public class TestesCentroColeta {
 	
 	// Test CRUD centroColeta
+	// Se precisar dropar a tabela, deixar como "create", caso contrario deixar como "update" no arquivo persistence.xml
 	// CTRL + 7 = comenta/descomenta bloco de codigo, testa ai povo!
+
 		public static void main(String[] args) {
 
 			EntityManager em = null;

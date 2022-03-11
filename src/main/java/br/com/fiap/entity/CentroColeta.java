@@ -12,39 +12,40 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="TB_CENTRO_COLETA")
+@Table(name = "TB_CENTRO_COLETA")
 public class CentroColeta {
-	
+
 	@Id
-	@Column(name="id_centro_col")
-	@SequenceGenerator(name="centro_col", sequenceName="sq_tb_centro_coleta", allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="centro_col")
+	@Column(name = "id_centro_col")
+	@SequenceGenerator(name = "centro_col", sequenceName = "sq_tb_centro_coleta", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "centro_col")
 	private int idCentroCol;
-	
-	@Column(name="nm_centro_col")
+
+	@Column(name = "nm_centro_col", nullable = false, length = 50)
 	private String nmCentroCol;
-	
+
+	@Column(name = "cnpj", nullable = false, length = 20)
 	private String cnpj;
-	
-	@Column(name="endereco_centro_col")
-	private String enderecoCentroCol; 
-	
-	@Column(name="cep_centro_col")
+
+	@Column(name = "endereco_centro_col", nullable = false, length = 80)
+	private String enderecoCentroCol;
+
+	@Column(name = "cep_centro_col", nullable = false, length = 9)
 	private String cepCentroCol;
-	
-	@Column(name="telefone_centro_col")
+
+	@Column(name = "telefone_centro_col", nullable = false, length = 15)
 	private String telefoneCentroCol;
 
-	// relacao 
-	
-	@OneToMany(mappedBy = "coletas")  
+	// relacao
+
+	@OneToMany(mappedBy = "coletas")
 	private List<Doacao> doacoesCentro;
-	
-	
-	// Contrutores 
-	
-	public CentroColeta() {}
-	
+
+	// Contrutores
+
+	public CentroColeta() {
+	}
+
 	public CentroColeta(int idCentroCol, String nmCentroCol, String cnpj, String enderecoCentroCol, String cepCentroCol,
 			String telefoneCentroCol, List<Doacao> doacoesCentro) {
 		super();
@@ -56,10 +57,8 @@ public class CentroColeta {
 		this.telefoneCentroCol = telefoneCentroCol;
 		this.doacoesCentro = doacoesCentro;
 	}
-	
-	
-	// Getters and Setters 
-	
+
+	// Getters and Setters
 
 	public int getIdCentroCol() {
 		return idCentroCol;
@@ -68,7 +67,7 @@ public class CentroColeta {
 	public void setIdCentroCol(int idCentroCol) {
 		this.idCentroCol = idCentroCol;
 	}
-	
+
 	public String getNmCentroCol() {
 		return nmCentroCol;
 	}
@@ -76,31 +75,39 @@ public class CentroColeta {
 	public void setNmCentroCol(String nmCentroCol) {
 		this.nmCentroCol = nmCentroCol;
 	}
+
 	public String getCnpj() {
 		return cnpj;
 	}
+
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
+
 	public String getEnderecoCentroCol() {
 		return enderecoCentroCol;
 	}
+
 	public void setEnderecoCentroCol(String enderecoCentroCol) {
 		this.enderecoCentroCol = enderecoCentroCol;
 	}
+
 	public String getCepCentroCol() {
 		return cepCentroCol;
 	}
+
 	public void setCepCentroCol(String cepCentroCol) {
 		this.cepCentroCol = cepCentroCol;
 	}
+
 	public String getTelefoneCentroCol() {
 		return telefoneCentroCol;
 	}
+
 	public void setTelefoneCentroCol(String telefoneCentroCol) {
 		this.telefoneCentroCol = telefoneCentroCol;
 	}
-	
+
 	public List<Doacao> getDoacoesCentro() {
 		return doacoesCentro;
 	}
